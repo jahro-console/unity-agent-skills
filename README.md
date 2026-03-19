@@ -1,39 +1,29 @@
 <div align="center">
 
-<!-- TODO: Add logo/banner image with light/dark mode variants -->
-<!-- <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.svg">
-  <img alt="Jahro Agent Skills" src="assets/banner-light.svg" width="600">
-</picture> -->
-
 # Jahro Agent Skills
 
 **Your AI coding assistant becomes a Unity debugging expert.**
 
-7 purpose-built skills that teach Claude Code, Cursor, and other AI assistants how to generate correct [Jahro](https://jahro.io/?utm_source=github&utm_medium=readme&utm_campaign=unity_agent_skills) code — commands, watchers, snapshots, production config, migration, and troubleshooting.
+<picture>
+  <img alt="Jahro Agent Skills" src="https://vdepoiw1jnimcohf.public.blob.vercel-storage.com/Jahro_3%201-f2rMPbdeHAvaTZaFEGHbfxIQ8hqFM0.png" width="800">
+</picture>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+**7 purpose-built skills that teach Claude Code, Cursor, and other AI assistants how to generate correct [Jahro](https://jahro.io/?utm_source=github&utm_medium=readme&utm_campaign=unity_agent_skills) code — commands, watchers, snapshots, production config, migration, and troubleshooting.**
+
+[![Jahro Console](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjahro-console%2Funity-package%2Fmain%2Fpackage.json&query=%24.version&logo=unity&label=Jahro%20Console&color=purple&logoColor=black)](https://github.com/jahro-console/unity-package)
 [![Unity 2021.3+](https://img.shields.io/badge/Unity-2021.3%2B-black?logo=unity)](https://unity.com)
-[![7 Skills](https://img.shields.io/badge/Skills-7-blue)]()
-[![Claude Code](https://img.shields.io/badge/Claude_Code-supported-orange)]()
-[![Cursor](https://img.shields.io/badge/Cursor-supported-purple)]()
-[![Discord](https://img.shields.io/badge/Discord-join-5865F2?logo=discord&logoColor=white)](https://discord.gg/txcHFRDeV4)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+<!-- [![Discord](https://img.shields.io/badge/Discord-join-5865F2?logo=discord&logoColor=white)](https://discord.gg/txcHFRDeV4) -->
+
+[Getting Started](https://jahro.io/docs/getting-started?utm_source=github&utm_medium=readme&utm_campaign=unity_agent_skills) •
+[Website](https://jahro.io?utm_source=github&utm_medium=readme&utm_campaign=unity_agent_skills) •
+[Documentation](https://jahro.io/docs?utm_source=github&utm_medium=readme&utm_campaign=unity_agent_skills) •
+[Web Console](https://console.jahro.io?utm_source=github&utm_medium=readme&utm_campaign=unity_agent_skills) •
+[Discord](https://discord.gg/txcHFRDeV4)
 
 </div>
 
 ---
-
-<!-- TODO: Add demo GIF (800px wide, <5MB, 15-30s)
-     Record in Cursor or Claude Code:
-     1. Open a MonoBehaviour (e.g. PlayerController.cs)
-     2. Ask: "Add Jahro debug commands for movement and combat methods"
-     3. Show AI generating [JahroCommand] attributes with correct syntax
-     4. (Optional) Cut to Unity Play Mode showing commands in Jahro console
--->
-<!-- <p align="center">
-  <img src="assets/demo.gif" alt="AI generating Jahro commands with agent skills loaded" width="800">
-</p> -->
 
 ## What is this?
 
