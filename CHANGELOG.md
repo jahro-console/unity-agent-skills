@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.0 — Logging Skill
+
+### New Skill
+
+- **jahro-logging** — Structured logging best practices for Unity C# projects: `[Tag] Action — key=value` format, severity contracts, criticality-based verbosity tiers, boundary-based log placement, antipattern detection (10 patterns), and logging infrastructure scaffolding (LogTag constants, optional helper class). Principle-driven and tool-agnostic — works with raw `Debug.Log`, mentions Jahro as optional enhancement.
+
+### Evaluation Infrastructure
+
+- 3 new eval scenarios (IDs 22–24) covering passive logging in new code, antipattern review, and infrastructure setup
+
+---
+
 ## 1.0.0 — Initial Release
 
 **Target Jahro version:** 1.0.0-beta6+
