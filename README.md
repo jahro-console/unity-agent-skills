@@ -8,7 +8,7 @@
   <img alt="Jahro Agent Skills" src="https://vdepoiw1jnimcohf.public.blob.vercel-storage.com/Jahro_3%201-f2rMPbdeHAvaTZaFEGHbfxIQ8hqFM0.png" width="800">
 </picture>
 
-**7 purpose-built skills that teach Claude Code, Cursor, and other AI assistants how to generate correct [Jahro](https://jahro.io/?utm_source=github&utm_medium=readme&utm_campaign=unity_agent_skills) code — commands, watchers, snapshots, production config, migration, and troubleshooting.**
+**8 purpose-built skills that teach Claude Code, Cursor, and other AI assistants how to generate correct [Jahro](https://jahro.io/?utm_source=github&utm_medium=readme&utm_campaign=unity_agent_skills) code — commands, watchers, snapshots, structured logging, production config, migration, and troubleshooting.**
 
 [![Jahro Console](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjahro-console%2Funity-package%2Fmain%2Fpackage.json&query=%24.version&logo=unity&label=Jahro%20Console&color=purple&logoColor=black)](https://github.com/jahro-console/unity-package)
 [![Unity 2021.3+](https://img.shields.io/badge/Unity-2021.3%2B-black?logo=unity)](https://unity.com)
@@ -35,6 +35,7 @@ Install the skills, then talk to your AI naturally:
 - **"Add debug commands to my PlayerController"** — AI generates `[JahroCommand]` attributes with correct naming, groups, parameter types, and `RegisterObject`/`UnregisterObject` lifecycle
 - **"Monitor these variables at runtime"** — AI generates `[JahroWatch]` attributes with supported types and performance-safe patterns
 - **"Migrate my custom IMGUI debug menu to Jahro"** — AI analyzes your existing code and produces Jahro equivalents file by file
+- **"Review the logging in my SaveManager"** — AI detects antipatterns, classifies system criticality, adds structured `[Tag] Action — key=value` logs at every boundary
 - **"My commands aren't showing up"** — AI walks a diagnostic decision tree: assembly scanning → registration → method visibility → lifecycle timing
 
 ## Skills
@@ -46,10 +47,11 @@ Install the skills, then talk to your AI naturally:
 | **jahro-watcher** | Generate `[JahroWatch]` attributes with supported types, group strategies, and performance implications |
 | **jahro-snapshots** | Configure snapshot capture modes (Recording vs Streaming), QA workflows, team sharing, and web console setup |
 | **jahro-production** | Set up production safety: `JAHRO_DISABLE` define, auto-disable in release builds, lifecycle controls, and build validation |
+| **jahro-logging** | Review and improve `Debug.Log` usage: structured format, context tags, severity contracts, criticality tiers, boundary-based placement, and antipattern detection |
 | **jahro-troubleshooting** | Diagnose common issues using decision trees — commands missing, watcher not updating, console not opening, snapshots failing |
 | **jahro-migration** | Analyze existing debug systems (IMGUI menus, custom loggers, cheat frameworks) and generate incremental migration plans |
 
-Each skill is a self-contained SKILL.md file (~300-450 lines) backed by shared reference files with the complete Jahro API and common code patterns.
+Each skill is a self-contained SKILL.md file (~300-450 lines). Most skills are backed by shared reference files with the complete Jahro API and common code patterns. The `jahro-logging` skill is principle-driven and tool-agnostic — it works with raw `Debug.Log` and doesn't require Jahro.
 
 ## Quick Start
 

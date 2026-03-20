@@ -407,3 +407,87 @@ public class CheatManager
   - Shows that Jahro handles parameter parsing automatically
   - Suggests incremental migration (both can coexist during transition)
   - The CheatManager class can be removed after migration
+
+## jahro-logging
+
+### S-22: Passive logging in new code
+
+- **Scenario**: User asks AI to write a new SaveManager class — the skill should automatically apply structured logging principles
+- **Input context**: No existing code, user requesting a new system from scratch
+- **Prompt**: "Write a SaveManager class for my Unity game that handles saving player data to a JSON file. It should support multiple save slots and auto-save."
+- **Expected behavior**:
+  - Uses structured format: `[Save] Action — key=value`
+  - Uses `Debug.LogError` for failures with actionable messages (path, error type, suggestion)
+  - Uses `Debug.Log` for significant events (save started, completed with timing)
+  - Passes `this` as context object parameter in `Debug.Log` calls
+  - Applies Tier 1 verbosity (maximum detail — logs every state transition and error path)
+  - Includes correlation ID or timing for multi-step save operations
+  - Does NOT log sensitive player data
+
+### S-23: Review existing code for antipatterns
+
+- **Scenario**: User provides a class with multiple planted antipatterns and asks for logging improvements
+- **Input context**:
+```csharp
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    public float health = 100f;
+    private string state = "Idle";
+
+    void Update()
+    {
+        Debug.Log($"Position: {transform.position}");
+        Debug.Log($"Health: {health}");
+    }
+
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        Debug.Log("took damage");
+        if (health <= 0)
+        {
+            state = "Dead";
+            Debug.LogError("Player died!");
+        }
+    }
+
+    public void LoadInventory()
+    {
+        try
+        {
+            var data = System.IO.File.ReadAllText("inventory.json");
+            Debug.Log(data);
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError("Error: " + e.Message);
+            throw;
+        }
+    }
+}
+```
+- **Prompt**: "Review and improve the logging in this class."
+- **Expected behavior**:
+  - Detects naked Debug.Log (`"took damage"` with no context)
+  - Detects logging in Update without guards (position and health every frame)
+  - Detects stringly-typed error (`"Player died!"` is not an error condition, misuses LogError)
+  - Detects log-and-throw in LoadInventory catch block
+  - Detects ToString()-style logging (`Debug.Log(data)` dumps raw file content)
+  - Classifies as Tier 2 (gameplay system)
+  - Generates improved code with `[Player]` context tag and `key=value` format
+  - Suggests removing Update logs or replacing with `[JahroWatch]` / guarded toggle
+
+### S-24: Setup logging infrastructure
+
+- **Scenario**: Team lead wants to establish project-wide logging standards
+- **Input context**: No existing logging conventions, team of 4 developers, user provides list of systems
+- **Prompt**: "I want to set up logging standards for my Unity project. We have these systems: SaveSystem, NetworkManager, PlayerController, InventoryManager, QuestSystem, AudioManager, InputHandler, and a ShopController for IAP. Team of 4 devs."
+- **Expected behavior**:
+  - Generates a `LogTag` constants class with the user's actual system names
+  - Organizes tags by criticality tier (Save, Network, Shop/IAP as Tier 1; Player, Inventory, Quest as Tier 2; Audio, Input as Tier 3)
+  - Offers optional lightweight logging helper class
+  - Helper uses `[Conditional("DEBUG")]` or `#if DEBUG` for debug-level stripping
+  - Provides conventions summary covering format, severity, tiers, and boundaries
+  - Does NOT generate generic/default systems the user didn't mention
